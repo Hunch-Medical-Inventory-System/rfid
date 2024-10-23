@@ -19,3 +19,6 @@ def main():
         data = Scanner.read()
         print(data)
         # Database.add_entries_to_inventory_table(supabase_client_secret, data)
+        Scanner.cleanup()
+
+if __name__ == '__main__':
