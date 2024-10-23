@@ -22,3 +22,4 @@ def main():
         Scanner.cleanup()
 
 if __name__ == '__main__':
+    main()
