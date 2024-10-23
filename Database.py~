@@ -33,21 +33,6 @@ def add_entries_to_inventory_table(supabase_client: Client, entries: dict):
     return data.data
 
 
-def add_entries_to_logs_table(supabase_client: Client, entries: dict):
-    """
-    This function takes a list of entries and adds them to the logs table in the database.
-
-    Args:
-        supabase_client (Client): The Supabase client used to interact with the database
-        entries (list): The data to be inserted into the logs table
-
-    Returns:
-        list: The data inserted into the logs table
-    """
-    data = supabase_client.table('logs').insert(entries).execute()
-    return data.data
-
-
 def add_entries_to_crew_table(supabase_client: Client, entries: dict):
     """
     This function takes a list of entries and adds them to the crew table in the database.

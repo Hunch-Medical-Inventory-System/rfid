@@ -10,12 +10,10 @@ def write(text):
     print("Now place your tag to write")
     reader.write(text)
     print("Written")
+    GPIO.cleanup()
 
 
 def read():
     data = reader.read()
-    return data
-
-
-def cleanup():
     GPIO.cleanup()
+    return data

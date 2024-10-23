@@ -1,8 +1,8 @@
 from dotenv import dotenv_values
 from supabase import create_client, Client
+import time
 import Scanner
 import Database
-import time
 
 
 def main():
@@ -17,9 +17,9 @@ def main():
     while True:
         time.sleep(1)
         data = Scanner.read()
+        Database.add_entries_to_logs_table(supabase_client_secret, data)
         print(data)
-        # Database.add_entries_to_inventory_table(supabase_client_secret, data)
-        Scanner.cleanup()
+
 
 if __name__ == '__main__':
     main()
