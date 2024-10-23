@@ -17,8 +17,8 @@ def main():
     while True:
         time.sleep(1)
         data = Scanner.read()
-        Database.add_entries_to_logs_table(supabase_client_secret, {"crew_member_id": data})
         print(data)
+        Database.add_entries_to_logs_table(supabase_client_secret, {"crew_member_id": data})
 
 
 if __name__ == '__main__':
