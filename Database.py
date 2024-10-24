@@ -18,48 +18,20 @@ def read_data_from_table(supabase_client: Client, table_name: str):
     return data.data
 
 
-def add_entries_to_inventory_table(supabase_client: Client, entries: dict):
+def add_entries_in_table(supabase_client: Client, table_name: str, entries: list):
     """
-    This function takes a list of entries and adds them to the inventory table in the database.
+    This function takes a table name and a list of entries and adds them to the
+    specified table in the database.
 
     Args:
         supabase_client (Client): The Supabase client used to interact with the database
-        entries (list): The data to be inserted into the inventory table
+        table_name (str): The name of the table to insert data into
+        entries (list): The data to be inserted into the specified table
 
     Returns:
-        list: The data inserted into the inventory table
+        list: The data inserted into the specified table
     """
-    data = supabase_client.table('inventory').insert(entries).execute()
-    return data.data
-
-
-def add_entries_to_logs_table(supabase_client: Client, entries: dict):
-    """
-    This function takes a list of entries and adds them to the logs table in the database.
-
-    Args:
-        supabase_client (Client): The Supabase client used to interact with the database
-        entries (list): The data to be inserted into the logs table
-
-    Returns:
-        list: The data inserted into the logs table
-    """
-    data = supabase_client.table('logs').insert(entries).execute()
-    return data.data
-
-
-def add_entries_to_crew_table(supabase_client: Client, entries: dict):
-    """
-    This function takes a list of entries and adds them to the crew table in the database.
-
-    Args:
-        supabase_client (Client): The Supabase client used to interact with the database
-        entries (list): The data to be inserted into the crew table
-
-    Returns:
-        list: The data inserted into the crew table
-    """
-    data = supabase_client.table('crew').insert(entries).execute()
+    data = supabase_client.table(table_name).insert(entries).execute()
     return data.data
 
 
@@ -124,7 +96,7 @@ def main():
         'location': 'B6'
     }
     # Add the dummy entry to the inventory table using the secret client
-    add_entries_to_inventory_table(supabase_client_secret, dummy_data)
+    add_entries_in_table(supabase_client_secret, 'inventory', dummy_data)
     # Delete the dummy entry from the inventory table using the secret client
     delete_entry_from_table(supabase_client_secret, 'inventory', 20)
 
