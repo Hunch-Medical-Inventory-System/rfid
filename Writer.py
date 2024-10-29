@@ -29,4 +29,4 @@ while True:
     test = Card(1, 1)
     json_card = json.dumps(test.__dict__)
     print(json.dumps(test.__dict__))
-    write(json_card)
+    # write(json_card)
