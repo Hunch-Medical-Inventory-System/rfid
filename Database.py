@@ -18,7 +18,7 @@ def read_data_from_table(supabase_client: Client, table_name: str):
     return data.data
 
 
-def add_entries_in_table(supabase_client: Client, table_name: str, entries: list):
+def add_entries_in_table(supabase_client: Client, table_name: str, entries: list | dict):
     """
     This function takes a table name and a list of entries and adds them to the
     specified table in the database.

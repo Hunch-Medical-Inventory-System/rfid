@@ -18,7 +18,7 @@ def main():
         time.sleep(1)
         data = Scanner.read()
         print(data)
-        Database.add_entries_to_logs_table(supabase_client_secret, {"crew_member_id": int(data[1])})
+        Database.add_entries_in_table(supabase_client_secret, "inventory", {"crew_member_id": int(data[1])})
 
 
 if __name__ == '__main__':
