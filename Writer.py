@@ -17,16 +17,18 @@ class Supply:
 
 class Card:
 
-    def __init__(self, card_id_number, supply_id: int):
-        self.ci: int = card_id_number
+    def __init__(self, supply_id: int, expiry_date: str,):
         self.si: int = supply_id
+        self.ed: str = expiry_date
+
 
 
 while True:
     sleep(1)
     card_id = read()
     print(card_id[0])
-    test = Card(1, 1)
+    print(card_id[1])
+    test = Card(1, "2022-01-01")
     json_card = json.dumps(test.__dict__)
     print(json.dumps(test.__dict__))
-    # write(json_card)
+    write(json_card)
