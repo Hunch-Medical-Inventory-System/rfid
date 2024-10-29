@@ -28,7 +28,7 @@ while True:
     card_id = read()
     print(card_id[0])
     print(card_id[1])
-    print(json.load(card_id[1]).si)
+    print(json.loads(card_id[1]).si)
     test_card = Card(1, "2022-01-01")
     json_card = json.dumps(test_card.__dict__)
     write(json_card)
