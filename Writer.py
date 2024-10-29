@@ -25,7 +25,7 @@ class Card:
 while True:
     sleep(1)
     card_id = read()
-    print(card_id)
+    print(card_id[0])
     test = Card(1, 1)
     json_card = json.dumps(test.__dict__)
     print(json.dumps(test.__dict__))
