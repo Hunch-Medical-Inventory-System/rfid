@@ -1,6 +1,7 @@
 from dotenv import dotenv_values
 from supabase import create_client, Client
 import time
+import json
 import Scanner
 import Database
 
@@ -19,9 +20,10 @@ def main():
         data = Scanner.read()
         print(data[0])
         print(data[1])
+        supply_id, expiry_date = json.loads(data[1])["si"], json.loads(data[1])["ed"]
         Database.add_entries_in_table(supabase_client_secret,
                                       "inventory",
-                                      {"id": int(data[0]), "supply_id": int(data[1].si), "expiry_date": data[1].ed})
+                                      {"id": int(data[0]), "supply_id": int(supply_id), "expiry_date": expiry_date})
 
 
 if __name__ == '__main__':
