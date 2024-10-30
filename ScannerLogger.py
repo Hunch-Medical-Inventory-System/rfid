@@ -19,7 +19,9 @@ def main():
         data = Scanner.read()
         print(data[0])
         print(data[1])
-        # Database.add_entries_in_table(supabase_client_secret, "inventory", {"crew_member_id": int(data[1])})
+        Database.add_entries_in_table(supabase_client_secret,
+                                      "inventory",
+                                      {"id": int(data[0]), "supply_id": int(data[1].si), "expiry_date": data[1].ed})
 
 
 if __name__ == '__main__':
