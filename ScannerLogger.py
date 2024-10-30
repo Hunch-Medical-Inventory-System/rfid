@@ -23,7 +23,7 @@ def main():
         supply_id, expiry_date = json.loads(data[1])["si"], json.loads(data[1])["ed"]
         Database.add_entries_in_table(supabase_client_secret,
                                       "inventory",
-                                      {"id": int(data[0]), "supply_id": int(supply_id), "expiry_date": expiry_date})
+                                      {"card_id": int(data[0]), "supply_id": int(supply_id), "expiry_date": expiry_date})
 
 
 if __name__ == '__main__':
