@@ -17,7 +17,7 @@ def main():
     while True:
         time.sleep(1)
         data = Scanner.read()
-        print(int(data[1]))
+        print(data[1])
         # Database.add_entries_in_table(supabase_client_secret, "inventory", {"crew_member_id": int(data[1])})
 
 
