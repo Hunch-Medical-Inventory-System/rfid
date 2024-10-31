@@ -18,7 +18,7 @@ supabase_client_anon: Client = create_client(url, anon_key)
 
 
 # Define the API routes
-@app.route(rule=f'/<table_name>', methods=['GET'])
+@app.route(rule='/<table_name>', methods=['GET'])
 def read(table_name: str):
     """
     This function reads data from the specified table in the database
@@ -34,7 +34,7 @@ def read(table_name: str):
     data = db.read_data_from_table(supabase_client_anon, table_name)
     return data
 
-@app.route(rule=f'/<table_name>', methods=['PUT'])
+@app.route(rule='/<table_name>', methods=['PUT'])
 def update(table_name):
     """
     This function takes a table name and an entry data dictionary
@@ -54,7 +54,7 @@ def update(table_name):
     print(data)
     return '200 OK'
 
-@app.route(rule=f'/<table_name>', methods=['POST'])
+@app.route(rule='/<table_name>', methods=['POST'])
 def insert(table_name: str):
     """
     This function takes a table name and a list of entries and adds them to the
@@ -71,7 +71,7 @@ def insert(table_name: str):
     db.add_entries_in_table(supabase_client_secret, table_name, request.get_json())
     return '200 OK'
 
-@app.route(rule=f'/<table_name>/<entry_id>', methods=['DELETE'])
+@app.route(rule='/<table_name>/<entry_id>', methods=['DELETE'])
 def delete(table_name: str, entry_id: int):
     """
     This function takes a table name and an entry ID and marks the entry as deleted in the
