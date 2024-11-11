@@ -34,10 +34,10 @@ def read(table_name: str):
     data = db.read_data_from_table(supabase_client_anon, table_name)
     return data
 
-@app.route(rule='/<table_name>', methods=['PUT'])
-def update(table_name):
+@app.route(rule='/<table_name>/<entry_id>', methods=['PUT'])
+def update(table_name: str, entry_id: int):
     """
-    This function takes a table name and an entry data dictionary
+    This function takes a table name, an entry ID, and an entry data dictionary
     and updates the entry in the specified table in the database.
 
     Args:
@@ -49,9 +49,7 @@ def update(table_name):
     Returns:
         str: A success message
     """
-    data = request.get_json()
-    db.update_entry_in_table(supabase_client_secret, table_name, data['id'], data)
-    print(data)
+    db.update_entry_in_table(supabase_client_secret, table_name, entry_id, request.get_json())
     return '200 OK'
 
 @app.route(rule='/<table_name>', methods=['POST'])
